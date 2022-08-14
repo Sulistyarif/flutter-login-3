@@ -187,7 +187,134 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ],
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Icon(
+                              Icons.qr_code_2_outlined,
+                              color: Color(0xFF778e92),
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          'Smart Key',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Icon(
+                              Icons.cloud_outlined,
+                              color: Color(0xFF778e92),
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          'Temperature',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Icon(
+                              Icons.lightbulb_outline,
+                              color: Color(0xFF778e92),
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          'Lighting',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Icon(
+                              Icons.widgets_outlined,
+                              color: Color(0xFF778e92),
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          'Services',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    child: Text(
+                      'Popular places around',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    primary: false,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return const Text('data');
+                    },
+                    itemCount: 15,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
