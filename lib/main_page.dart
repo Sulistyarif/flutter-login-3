@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -25,6 +27,31 @@ class _MainPageState extends State<MainPage> {
         statusBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore_outlined),
+              label: 'home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble_outline),
+              label: 'home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline_outlined),
+              label: 'home',
+            ),
+          ],
+          selectedItemColor: Colors.blue,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: Colors.blue,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+        ),
         backgroundColor: const Color(0xFFebeef1),
         body: ListView(
           physics: const BouncingScrollPhysics(
@@ -283,36 +310,82 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(25),
-                  topRight: Radius.circular(25),
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                  ),
                 ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    child: Text(
-                      'Popular places around',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      child: Text(
+                        'Popular places around',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
                     ),
-                  ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    primary: false,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return const Text('data');
-                    },
-                    itemCount: 15,
-                  ),
-                ],
+                    SizedBox(
+                      height: 300,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        primary: false,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                                child: Image.asset(
+                                  'assets/lake.jpg',
+                                  width: 230,
+                                ),
+                              ),
+                              Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                width: 250,
+                                decoration: const BoxDecoration(),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(top: 10, bottom: 5),
+                                      child: Text(
+                                        'Cimahi Waterfall',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'With a height of about 87 meters, making this waterfall one of the highest waterfalls in the Bandung area',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                        itemCount: 3,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
