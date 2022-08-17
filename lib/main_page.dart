@@ -335,50 +335,56 @@ class _MainPageState extends State<MainPage> {
                     SizedBox(
                       height: 300,
                       child: ListView.builder(
+                        physics: const BouncingScrollPhysics(
+                            parent: AlwaysScrollableScrollPhysics()),
                         shrinkWrap: true,
                         primary: false,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  topRight: Radius.circular(20),
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                  ),
+                                  child: Image.asset(
+                                    'assets/lake.jpg',
+                                    width: 230,
+                                  ),
                                 ),
-                                child: Image.asset(
-                                  'assets/lake.jpg',
-                                  width: 230,
-                                ),
-                              ),
-                              Container(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                width: 250,
-                                decoration: const BoxDecoration(),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 10, bottom: 5),
-                                      child: Text(
-                                        'Cimahi Waterfall',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 5),
+                                  width: 250,
+                                  decoration: const BoxDecoration(),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: const [
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.only(top: 10, bottom: 5),
+                                        child: Text(
+                                          'Cimahi Waterfall',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Text(
-                                      'With a height of about 87 meters, making this waterfall one of the highest waterfalls in the Bandung area',
-                                      style: TextStyle(color: Colors.grey),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                                      Text(
+                                        'With a height of about 87 meters, making this waterfall one of the highest waterfalls in the Bandung area',
+                                        style: TextStyle(color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           );
                         },
                         itemCount: 3,
